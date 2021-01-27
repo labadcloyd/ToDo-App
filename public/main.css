@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+html{
+    font-size: 16px;
+    background-color: #1f1f1f;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+/* THIS IS FOR THE SIDE BAR */
+
+.side-bar{
+    color: white;
+    height: 100vh;
+    min-width: 300px;
+    width: 400px;
+    background-color: #333333;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;    
+}
+.site-title{
+    font-size: 3rem;
+    margin: 0;
+    padding: 20px;
+}
+.list-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.list-container a {
+    text-decoration: none;
+    color: inherit;
+    padding: 20px;
+    width: 80%;
+}
+.list-container a:hover{
+    background-color: #494949;
+}
+.list-container button{
+    width: 20%;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    cursor: pointer;
+}
+.list-container button:hover{
+    background-color: #a11414;
+}
+.new-list-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #494949;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+.new-list-container input{
+    color: white;
+    background-color: inherit;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    padding: 20px;
+    width: 80%;
+}
+.new-list-container button{
+    color: white;
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 20px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    width: 20%;
+    cursor: pointer;
+}
+.new-list-container button:hover{
+    background-color: #20a114;
+}
