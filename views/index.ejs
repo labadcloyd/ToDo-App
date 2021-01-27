@@ -7,7 +7,7 @@
     </form>
 
     <form action="/addNewList" class="new-list-container" method="POST">
-        <input type="text" class="new-list-input">
+        <input type="text" class="new-list-input" maxlength="30">
         <button type="submit">+</button>
     </form>
 </div>
@@ -15,20 +15,21 @@
 
 
 
-<div class="main">
-    <div class="main-container">
+<div class="main-container">
+    <form class="todo-container">
         <h2 class="list-title">Sample</h2>
-        <form class="todo-container">
-            <div class="todo">
+        <div class="todo">            
+            <label>
                 <input type="checkbox" name="todo1">
-                <label for="todo1">lorem ipsum</label>
-            </div>
-        </form>
-        <form class="add-new-todo" action="/addNeTodo" method="POST">
-            <input type="text" class="add-new-todo">
-            <button class="addnewtodo">+</button>
-        </form>
-    </div>
+                lorem ipsum
+            </label>
+        </div>
+    </form>
+    <form class="add-new-todo" action="/addNewTodo" method="POST">
+        <input type="text">
+        <button class="addnewtodo">+</button>
+    </form>
 </div>
+
 
 <%- include('partials/footer'); -%>
