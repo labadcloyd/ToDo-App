@@ -1,10 +1,16 @@
 <%- include('partials/header'); -%>
 <div class="side-bar">
     <h1 class="site-title">ToDo App</h1>
-    <form action="/removeList" class="list-container" method="POST">
-        <a href="">Sample</a>
-        <button type="submit">🗑️</button>
-    </form>
+    <div class="list">
+        <form action="/removeList" class="list-container" method="POST">
+            <input type="radio" name="todo1">
+            <label for="todo1">
+                Sample
+            </label>
+            
+            <button type="submit">🗑️</button>
+        </form>
+    </div>
 
     <form action="/addNewList" class="new-list-container" method="POST">
         <input type="text" class="new-list-input" maxlength="30">
@@ -19,15 +25,16 @@
     <form class="todo-container">
         <h2 class="list-title">Sample</h2>
         <div class="todo">            
-            <label>
-                <input type="checkbox" name="todo1">
-                lorem ipsum
+            <label class="checkmark" for="todo1">
+                        
             </label>
+            <input type="checkbox" name="todo1">        
+            lorem ipsum
         </div>
     </form>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
         <input type="text">
-        <button class="addnewtodo">+</button>
+        <button>+</button>
     </form>
 </div>
 

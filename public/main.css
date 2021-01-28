@@ -34,18 +34,30 @@ body{
     margin: 0;
     padding: 20px;
 }
+.list{
+    margin: 0px 0px 20px 0px;
+    overflow-y: auto;
+}
 .list-container{
     display: flex;
     flex-direction: row;
     width: 100%;
 }
-.list-container a {
+.list-container label {
     text-decoration: none;
     color: inherit;
     padding: 20px;
     width: 80%;
+    cursor: pointer;
 }
-.list-container a:hover{
+.list-container label:hover{
+    background-color: #494949;
+}
+.list-container input{
+    position: absolute;
+    opacity: 0;
+}
+.list-container input:checked ~ label{
     background-color: #494949;
 }
 .list-container button{
@@ -61,6 +73,8 @@ body{
     background-color: #a11414;
 }
 .new-list-container{
+    position: absolute;
+    bottom: 0;
     background-color: #494949;
     width: 100%;
     box-sizing: border-box;
@@ -111,6 +125,10 @@ body{
 .todo-container{
     padding: 0px 0px 20px 0px;
 }
+.todo{
+    padding: 15px;
+    background-color: #333333;
+}
 .add-new-todo{
     display: flex;
     flex-direction: row;
@@ -126,11 +144,18 @@ body{
     width: 100%;
     color: inherit;
 }
-.todo{
-    padding: 15px;
-    background-color: #333333;
+.add-new-todo button{
+    color: white;
+    font-size: 2.2rem;
+    margin: 0;
+    background-color: #494949;
+    border: none;
+    outline: none;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    height: auto;
 }
-.todo input[type="checkbox"]{
-    background-color: none;
-    border-radius: 100%;
+.add-new-todo button:hover{
+    background-color: #144ca1;
 }
