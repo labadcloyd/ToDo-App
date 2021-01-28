@@ -3,10 +3,7 @@
     <h1 class="site-title">ToDo App</h1>
     <div class="list">
         <form action="/removeList" class="list-container" method="POST">
-            <input type="radio" name="todo1">
-            <label for="todo1">
-                Sample
-            </label>
+            <a href="">Sample</a>
             
             <button type="submit">🗑️</button>
         </form>
@@ -22,16 +19,29 @@
 
 
 <div class="main-container">
-    <form class="todo-container">
+    <div class="todo-container">
         <h2 class="list-title">Sample</h2>
-        <div class="todo">            
-            <label class="checkmark" for="todo1">
-                        
-            </label>
-            <input type="checkbox" name="todo1">        
-            lorem ipsum
-        </div>
-    </form>
+        <label class="todo">
+            <input type="checkbox" name="todo1" class="todo1">
+            <span class="checkmark"></span>        
+            <span class="todo-text">lorem ipsum</span> 
+        </label>
+        <label class="todo">
+            <input type="checkbox" name="todo1" class="todo1">
+            <span class="checkmark"></span>        
+            <span class="todo-text">lorem ipsum</span> 
+        </label>
+        <label class="todo">
+            <input type="checkbox" name="todo1" class="todo1">
+            <span class="checkmark"></span>        
+            <span class="todo-text">lorem ipsum</span> 
+        </label>
+        <label class="todo">
+            <input type="checkbox" name="todo1" class="todo1">
+            <span class="checkmark"></span>        
+            <span class="todo-text">lorem ipsum</span> 
+        </label>
+    </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
         <input type="text">
         <button>+</button>

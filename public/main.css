@@ -43,23 +43,18 @@ body{
     flex-direction: row;
     width: 100%;
 }
-.list-container label {
+.list-container a {
     text-decoration: none;
     color: inherit;
     padding: 20px;
     width: 80%;
     cursor: pointer;
 }
-.list-container label:hover{
+.list-container a:hover{
     background-color: #494949;
 }
-.list-container input{
-    position: absolute;
-    opacity: 0;
-}
-.list-container input:checked ~ label{
-    background-color: #494949;
-}
+
+
 .list-container button{
     width: 20%;
     font-size: 1.3rem;
@@ -128,6 +123,32 @@ body{
 .todo{
     padding: 15px;
     background-color: #333333;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+.todo:hover{
+    background-color: #494949;
+}
+.todo1{
+    display: none;
+}
+.checkmark{
+    height: 15px;
+    width: 15px;
+    display: inline-block; 
+    border-style: solid;   
+    border-color: #ffffff;
+    border-radius: 100%;
+    border-width: 2px;
+}
+.todo1:checked ~ .checkmark{
+    background-color: #23c42b;
+    border-color: #23c42b;
+}
+.todo1:checked ~ .todo-text{
+    text-decoration: line-through;
 }
 .add-new-todo{
     display: flex;
