@@ -4,17 +4,15 @@
     <div class="list">
         <form action="/removeList" class="list-container" method="POST">
             <a href="">Sample</a>
-            
             <button type="submit">🗑️</button>
         </form>
     </div>
 
     <form action="/addNewList" class="new-list-container" method="POST">
-        <input type="text" class="new-list-input" maxlength="30">
+        <input type="text" class="new-list-input" maxlength="30" name="newList">
         <button type="submit">+</button>
     </form>
 </div>
-
 
 
 
@@ -26,21 +24,7 @@
             <span class="checkmark"></span>        
             <span class="todo-text">lorem ipsum</span> 
         </label>
-        <label class="todo">
-            <input type="checkbox" name="todo1" class="todo1">
-            <span class="checkmark"></span>        
-            <span class="todo-text">lorem ipsum</span> 
-        </label>
-        <label class="todo">
-            <input type="checkbox" name="todo1" class="todo1">
-            <span class="checkmark"></span>        
-            <span class="todo-text">lorem ipsum</span> 
-        </label>
-        <label class="todo">
-            <input type="checkbox" name="todo1" class="todo1">
-            <span class="checkmark"></span>        
-            <span class="todo-text">lorem ipsum</span> 
-        </label>
+        
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
         <input type="text">
