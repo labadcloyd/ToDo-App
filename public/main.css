@@ -85,6 +85,9 @@ body{
     padding: 20px;
     width: 80%;
 }
+.new-list-container input:focus{
+    background-color: #555555;
+}
 .new-list-container button{
     color: white;
     font-size: 2.2rem;
@@ -144,8 +147,8 @@ body{
     border-width: 2px;
 }
 .todo1:checked ~ .checkmark{
-    background-color: #23c42b;
-    border-color: #23c42b;
+    background-color: #18961e;
+    border-color: #18961e;
 }
 .todo1:checked ~ .todo-text{
     text-decoration: line-through;
@@ -164,6 +167,9 @@ body{
     background-color: #494949;
     width: 100%;
     color: inherit;
+}
+.add-new-todo input:focus{
+    background-color:  #555555;
 }
 .add-new-todo button{
     color: white;
