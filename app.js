@@ -35,11 +35,18 @@ const TodoTitleSchema = new mongoose.Schema({
 const todoTitle = mongoose.model('todoTitle', TodoTitleSchema)
 
 app.get('/', (req,res)=>{
-    res.render('index.ejs');
+    todoTitle.find((err, todos)=>{
+        res.render('index.ejs', {
+            todos: todos,
+            todotitle: todoTitle.title,
+            todocontent: todoTitle.content,
+            todoID: todoTitle._id,
+        })
+    })
 })
 app.post('/addNewList', (req,res)=>{
     let newList = todoTitle.insertMany({
         title: req.body.newList,
     })
-    
+    res.redirect('/')
 })

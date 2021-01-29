@@ -1,12 +1,18 @@
 <%- include('partials/header'); -%>
+
+
 <div class="side-bar">
     <h1 class="site-title">ToDo App</h1>
-    <div class="list">
-        <form action="/removeList" class="list-container" method="POST">
-            <a href="">Sample</a>
-            <button type="submit">🗑️</button>
-        </form>
+    <div class="main-list-container">
+        <div class="list">
+            <form action="/removeList" class="list-container" method="POST">
+                <a href="">Sample</a>
+                <button type="submit">🗑️</button>
+            </form>
+        </div>
+        
     </div>
+    
 
     <form action="/addNewList" class="new-list-container" method="POST">
         <input type="text" class="new-list-input" maxlength="30" name="newList">
