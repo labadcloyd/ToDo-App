@@ -5,12 +5,10 @@
     <h1 class="site-title">ToDo App</h1>
     <div class="main-list-container">
         <% todos.forEach((todos)=>{ %>
-            <div class="list">
                 <form action="/removeList" class="list-container" method="POST">
-                    <a href="<%= todos._id %>"><%= todos.title %></a>
+                    <a href="/list/<%= todos.title %>"><%= todos.title %></a>
                     <button type="submit">🗑️</button>
                 </form>
-            </div>
         <% }) %>
     </div>
     
@@ -24,13 +22,7 @@
 
 
 <div class="main-container">
-    <div class="todo-container">
-        
-    </div>
-    <form class="add-new-todo" action="/addNewTodo" method="POST">
-        <input type="text">
-        <button>+</button>
-    </form>
+    
 </div>
 
 

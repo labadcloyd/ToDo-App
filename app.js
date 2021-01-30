@@ -30,7 +30,7 @@ const TodoTitleSchema = new mongoose.Schema({
         min: 1,
         max: 30,
     },
-    content: TodoSchema,
+    content: [TodoSchema],
 })
 const todoTitle = mongoose.model('todoTitle', TodoTitleSchema)
 
@@ -47,19 +47,35 @@ app.post('/addNewList', (req,res)=>{
     })
     res.redirect('/')
 })
-app.get('/:todoID', (req,res)=>{
+app.get('/list/:todoID', (req,res)=>{
     let reqID = req.params.todoID;
-    console.log(reqID)
-    todoTitle.find((err, todotitle)=>{
-        todotitle.forEach((todos)=>{
-            if(reqID === todos._id){
+    console.log(req.params.todoID)
+    todoTitle.find((err, todos)=>{
+        todos.forEach((todostitle)=>{
+            if(reqID === todostitle.title){
                 res.render('list.ejs', {
                     todos: todos,
+                    todostitle: todostitle,
+                    todocontent: todostitle.content,
                 })
             }
         })
         if (err){
-            console.log(err)
         }
+    })
+})
+
+app.post('/addNewTodo', (req,res)=>{
+    let newItem = req.body.newItem;
+    let listtitle = req.body.listTitle;
+    console.log(listtitle)
+    todoTitle.find((err, todos)=>{
+        todos.forEach((todocontent)=>{
+            if(todocontent.title === listtitle){
+                todocontent.create({
+                    content: newItem,
+                })
+            }
+        })
     })
 })
