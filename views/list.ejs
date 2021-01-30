@@ -25,7 +25,14 @@
 
 <div class="main-container">
     <div class="todo-container">
-        
+        <h2 class="list-title"><%= todos.title %></h2>
+        <% todos.content.forEach((todos)=>{ %>
+        <label class="todo">
+            <input type="checkbox" name="todo1" class="todo1">
+            <span class="checkmark"></span>        
+            <span class="todo-text"><%= todos %></span> 
+        </label>
+        <% })%>
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
         <input type="text">

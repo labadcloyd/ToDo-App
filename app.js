@@ -38,9 +38,6 @@ app.get('/', (req,res)=>{
     todoTitle.find((err, todos)=>{
         res.render('index.ejs', {
             todos: todos,
-            todotitle: todoTitle.title,
-            todocontent: todoTitle.content,
-            todoID: todoTitle._id,
         })
     })
 })
@@ -49,4 +46,20 @@ app.post('/addNewList', (req,res)=>{
         title: req.body.newList,
     })
     res.redirect('/')
+})
+app.get('/:todoID', (req,res)=>{
+    let reqID = req.params.todoID;
+    console.log(reqID)
+    todoTitle.find((err, todotitle)=>{
+        todotitle.forEach((todos)=>{
+            if(reqID === todos._id){
+                res.render('list.ejs', {
+                    todos: todos,
+                })
+            }
+        })
+        if (err){
+            console.log(err)
+        }
+    })
 })
