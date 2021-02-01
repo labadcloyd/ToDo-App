@@ -50,18 +50,15 @@ app.post('/addNewList', (req,res)=>{
 app.get('/list/:todoID', (req,res)=>{
     let reqID = req.params.todoID;
     console.log(req.params.todoID)
-    todoTitle.find((err, todos)=>{
-        todos.forEach((todostitle)=>{
-            if(reqID === todostitle.title){
-                res.render('list.ejs', {
-                    todos: todos,
-                    todostitle: todostitle,
-                    todocontent: todostitle.content,
-                })
-            }
-        })
-        if (err){
-        }
+    todoTitle.find({},(err, todos)=>{
+        todoTitle.findOne({_id:reqID},(err, foundtodo)=>{
+            console.log(foundtodo);
+            res.render('list.ejs', {
+                todos: todos,
+                todostitle: foundtodo.title,
+                todocontent: foundtodo.content,
+            })
+        })   
     })
 })
 
@@ -69,13 +66,10 @@ app.post('/addNewTodo', (req,res)=>{
     let newItem = req.body.newItem;
     let listtitle = req.body.listTitle;
     console.log(listtitle)
-    todoTitle.find((err, todos)=>{
-        todos.forEach((todocontent)=>{
-            if(todocontent.title === listtitle){
-                todocontent.create({
-                    content: newItem,
-                })
-            }
-        })
+    todoTitle.findOne({_id:listtitle},(err, foundtodo)=>{
+        console.log(foundtodo)
+        res.redirect('/list/'+listtitle)
     })
 })
+
+

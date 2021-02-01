@@ -6,7 +6,7 @@
     <div class="main-list-container">
         <% todos.forEach((todos)=>{ %>
                 <form action="/removeList" class="list-container" method="POST">
-                    <a href="/list/<%= todos.title %>"><%= todos.title %></a>
+                    <a href="/list/<%= todos._id %>"><%= todos.title %></a>
                     <button type="submit">🗑️</button>
                 </form>
         <% }) %>
@@ -14,7 +14,7 @@
     
 
     <form action="/addNewList" class="new-list-container" method="POST">
-        <input type="text" class="new-list-input" maxlength="30" name="newList">
+        <input type="text" class="new-list-input" maxlength="30" name="newList" autocomplete="off">
         <button type="submit">+</button>
     </form>
 </div>
@@ -23,7 +23,7 @@
 
 <div class="main-container">
     <div class="todo-container">
-        <h2 class="list-title"><%= todostitle.title %></h2>
+        <h2 class="list-title"><%= todostitle %></h2>
         <% todocontent.forEach((todos)=>{ %>
         <label class="todo">
             <input type="checkbox" name="todo1" class="todo1">
@@ -33,7 +33,7 @@
         <% })%>
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
-        <input type="text" name="newItem">
+        <input type="text" name="newItem" autocomplete="off">
         <button name="listTitle" value="<%= todostitle.title %>">+</button>
     </form>
 </div>
