@@ -65,12 +65,10 @@ app.get('/list/:todoID', (req,res)=>{
 app.post('/addNewTodo', (req,res)=>{
     let newItem = new todo({name:req.body.newItem})
     let listtitle = req.body.listTitle;
-    console.log(listtitle)
     todoTitle.findOne({_id:listtitle},(err, foundtodo)=>{
         foundtodo.content.push(newItem);
         foundtodo.save();
         res.redirect('/list/'+listtitle);
     })
 })
-
 

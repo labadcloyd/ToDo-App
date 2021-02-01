@@ -2,7 +2,7 @@
 
 
 <div class="side-bar">
-    <h1 class="site-title">ToDo App</h1>
+    <a class="site-title" href="/">ToDo App</a>
     <div class="main-list-container">
         <% todos.forEach((todos)=>{ %>
                 <form action="/removeList" class="list-container" method="POST">
@@ -33,7 +33,7 @@
         <% })%>
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
-        <input type="text" name="newItem" autocomplete="off">
+        <input type="text" name="newItem" autocomplete="off" required="true">
         <button name="listTitle" value="<%= todoID %>">+</button>
     </form>
 </div>
