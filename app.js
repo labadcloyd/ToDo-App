@@ -20,6 +20,7 @@ const TodoSchema = new mongoose.Schema({
     name:  {
         type: String,
         required: true,
+        min: 1,
     },
 })
 const todo = mongoose.model('todo', TodoSchema)
@@ -49,26 +50,26 @@ app.post('/addNewList', (req,res)=>{
 })
 app.get('/list/:todoID', (req,res)=>{
     let reqID = req.params.todoID;
-    console.log(req.params.todoID)
     todoTitle.find({},(err, todos)=>{
         todoTitle.findOne({_id:reqID},(err, foundtodo)=>{
-            console.log(foundtodo);
             res.render('list.ejs', {
                 todos: todos,
                 todostitle: foundtodo.title,
                 todocontent: foundtodo.content,
+                todoID: foundtodo._id,
             })
         })   
     })
 })
 
 app.post('/addNewTodo', (req,res)=>{
-    let newItem = req.body.newItem;
+    let newItem = new todo({name:req.body.newItem})
     let listtitle = req.body.listTitle;
     console.log(listtitle)
     todoTitle.findOne({_id:listtitle},(err, foundtodo)=>{
-        console.log(foundtodo)
-        res.redirect('/list/'+listtitle)
+        foundtodo.content.push(newItem);
+        foundtodo.save();
+        res.redirect('/list/'+listtitle);
     })
 })
 

@@ -28,13 +28,13 @@
         <label class="todo">
             <input type="checkbox" name="todo1" class="todo1">
             <span class="checkmark"></span>        
-            <span class="todo-text"><%= todos %></span> 
+            <span class="todo-text"><%= todos.name %></span> 
         </label>
         <% })%>
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
         <input type="text" name="newItem" autocomplete="off">
-        <button name="listTitle" value="<%= todostitle.title %>">+</button>
+        <button name="listTitle" value="<%= todoID %>">+</button>
     </form>
 </div>
 
