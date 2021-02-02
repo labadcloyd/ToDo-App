@@ -72,3 +72,11 @@ app.post('/addNewTodo', (req,res)=>{
     })
 })
 
+app.post('/removelist',(req,res)=>{
+    let todoID = req.body.removeList;
+    todoTitle.findOneAndDelete({_id:todoID}, (err, foundtodoID)=>{
+        console.log(foundtodoID);
+        if(err){console.log(err)};
+        res.redirect('/');
+    })
+})
