@@ -37,6 +37,9 @@ const todoTitle = mongoose.model('todoTitle', TodoTitleSchema)
 
 app.get('/', (req,res)=>{
     todoTitle.find((err, todos)=>{
+        if(err){
+            console.log(err)
+        }
         res.render('index.ejs', {
             todos: todos,
         })
@@ -52,6 +55,9 @@ app.get('/list/:todoID', (req,res)=>{
     let reqID = req.params.todoID;
     todoTitle.find({},(err, todos)=>{
         todoTitle.findOne({_id:reqID},(err, foundtodo)=>{
+            if(err){
+                console.log(err)
+            }
             res.render('list.ejs', {
                 todos: todos,
                 todostitle: foundtodo.title,
@@ -66,17 +72,30 @@ app.post('/addNewTodo', (req,res)=>{
     let newItem = new todo({name:req.body.newItem})
     let listtitle = req.body.listTitle;
     todoTitle.findOne({_id:listtitle},(err, foundtodo)=>{
+        if(err){
+            console.log(err)
+        }
         foundtodo.content.push(newItem);
         foundtodo.save();
         res.redirect('/list/'+listtitle);
     })
 })
 
-app.post('/removelist',(req,res)=>{
-    let todoID = req.body.removeList;
-    todoTitle.findOneAndDelete({_id:todoID}, (err, foundtodoID)=>{
-        console.log(foundtodoID);
+app.post('/removeList',(req,res)=>{
+    let listID = req.body.removeList;
+    todoTitle.findOneAndDelete({_id:listID}, (err, foundlist)=>{
         if(err){console.log(err)};
+        res.redirect('/');
+    })
+})
+app.post('/removeTodo',(req,res)=>{
+    let todoID = req.body.removeTodo;
+    console.log(todoID);
+    todoTitle.findOne({content:[{_id:todoID}]}, (err, foundtodo)=>{
+        console.log(foundtodo);
+        if(err){
+            console.log(err)
+        }
         res.redirect('/');
     })
 })

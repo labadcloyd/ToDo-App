@@ -74,7 +74,7 @@ body{
 }
 
 
-.list-container button{
+.deletebtn{
     width: 20%;
     font-size: 1.3rem;
     color: white;
@@ -82,8 +82,9 @@ body{
     background-color: inherit;
     cursor: pointer;
     height: auto;
+    width: 50px;
 }
-.list-container button:hover{
+.deletebtn:hover{
     background-color: #a11414;
 }
 .new-list-container{
@@ -143,17 +144,29 @@ body{
     padding: 0px 0px 20px 0px;
     overflow-y: auto;
 }
-.todo{
+.innertodo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
     padding: 15px;
     background-color: #333333;
+    width: 100%;
+    height: auto;
+}
+.todo{
     cursor: pointer;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
-    gap: 10px;
+    
+    background-color: #333333;
 }
-.todo:hover{
+.innertodo:hover{
     background-color: #494949;
 }
+
 .todo1{
     display: none;
 }

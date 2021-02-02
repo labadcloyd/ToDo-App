@@ -7,7 +7,7 @@
         <% todos.forEach((todos)=>{ %>
                 <form action="/removeList" class="list-container" method="POST">
                     <a href="/list/<%= todos._id %>"><%= todos.title %></a>
-                    <button type="submit" name="removeList" value="<%= todos._id %>">🗑️</button>
+                    <button class="deletebtn" type="submit" name="removeList" value="<%= todos._id %>">🗑️</button>
                 </form>
         <% }) %>
     </div>
