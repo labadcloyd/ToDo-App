@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/toDoDB', {useNewUrlParser:true, useU
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("listening on port 3000")
 })
-
+mongoose.set('useFindAndModify', false);
 const TodoSchema = new mongoose.Schema({
     name:  {
         type: String,
@@ -63,6 +63,7 @@ app.get('/list/:todoID', (req,res)=>{
                 todostitle: foundtodo.title,
                 todocontent: foundtodo.content,
                 todoID: foundtodo._id,
+                foundtodo: foundtodo,
             })
         })   
     })
@@ -90,12 +91,13 @@ app.post('/removeList',(req,res)=>{
 })
 app.post('/removeTodo',(req,res)=>{
     let todoID = req.body.removeTodo;
-    console.log(todoID);
-    todoTitle.findOne({content:[{_id:todoID}]}, (err, foundtodo)=>{
+    let listID = req.body.listID;
+    console.log(todoID)
+    todoTitle.findOneAndUpdate({_id: listID}, {$pull: {content: {_id: todoID}}}, { safe: true }, (err, foundtodo)=>{
         console.log(foundtodo);
         if(err){
             console.log(err)
         }
-        res.redirect('/');
+        res.redirect('/list/'+listID);
     })
-})
+})  

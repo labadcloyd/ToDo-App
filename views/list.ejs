@@ -31,7 +31,9 @@
                 <span class="checkmark"></span>        
                 <span class="todo-text"><%= todo.name %></span>
                 
-                <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">🗑️</button> 
+                <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">
+                    <input type="hidden" name="listID" value="<%= foundtodo._id %>"></input>🗑️
+                </button> 
             </form>
         </label>
         <% })%>
