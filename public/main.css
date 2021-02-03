@@ -61,6 +61,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
 }
 .list-container a {
     text-decoration: none;
@@ -81,11 +82,13 @@ body{
     border: none;
     background-color: inherit;
     cursor: pointer;
-    height: auto;
-    width: 50px;
+    height: 40px;
+    width: 40px;
+    margin-right: 5px;
 }
 .deletebtn:hover{
     background-color: #a11414;
+    border-radius: 100%;
 }
 .new-list-container{
     position: absolute;
@@ -153,6 +156,7 @@ body{
     background-color: #333333;
     width: 100%;
     height: auto;
+    overflow-y: auto;
 }
 .todo{
     cursor: pointer;
@@ -160,9 +164,12 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    
     background-color: #333333;
 }
+.todo-text{
+    width: 90%;
+}
+
 .innertodo:hover{
     background-color: #494949;
 }

@@ -25,17 +25,18 @@
     <div class="todo-container">
         <h2 class="list-title"><%= todostitle %></h2>
         <% todocontent.forEach((todo)=>{ %>
-        <label class="todo">
-            <form action="/removeTodo" method="POST" class="innertodo">
+        <form action="/removeTodo" method="POST" class="todo">
+            <label class="innertodo">
                 <input type="checkbox" name="todo1" class="todo1" minlength="1" maxlength="50">
                 <span class="checkmark"></span>        
                 <span class="todo-text"><%= todo.name %></span>
                 
-                <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">
-                    <input type="hidden" name="listID" value="<%= foundtodo._id %>"></input>🗑️
-                </button> 
-            </form>
-        </label>
+                
+            </label>
+            <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">
+                <input type="hidden" name="listID" value="<%= foundtodo._id %>"></input>🗑️
+            </button> 
+        </form>
         <% })%>
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">

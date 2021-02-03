@@ -92,9 +92,7 @@ app.post('/removeList',(req,res)=>{
 app.post('/removeTodo',(req,res)=>{
     let todoID = req.body.removeTodo;
     let listID = req.body.listID;
-    console.log(todoID)
-    todoTitle.findOneAndUpdate({_id: listID}, {$pull: {content: {_id: todoID}}}, { safe: true }, (err, foundtodo)=>{
-        console.log(foundtodo);
+    todoTitle.findOneAndUpdate({_id: listID}, {$pull: {content: {_id: todoID}}}, (err, foundtodo)=>{
         if(err){
             console.log(err)
         }
