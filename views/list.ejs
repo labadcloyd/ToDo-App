@@ -6,7 +6,7 @@
     <div class="main-list-container">
         <% todos.forEach((todos)=>{ %>
                 <form action="/removeList" class="list-container" method="POST">
-                    <a href="/list/<%= todos._id %>"><%= todos.title %></a>
+                    <a href="/list/<%= todos._id %>" class="list-container-title"><%= todos.title %></a>
                     <button type="submit" name="removeList" value="<%= todos._id %>" class="deletebtn">🗑️</button>
                 </form>
         <% }) %>
@@ -30,8 +30,6 @@
                 <input type="checkbox" name="todo1" class="todo1" minlength="1" maxlength="50">
                 <span class="checkmark"></span>        
                 <span class="todo-text"><%= todo.name %></span>
-                
-                
             </label>
             <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">
                 <input type="hidden" name="listID" value="<%= foundtodo._id %>"></input>🗑️

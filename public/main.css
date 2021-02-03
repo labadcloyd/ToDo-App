@@ -36,7 +36,7 @@ body{
     color: white;
     height: 100vh;
     min-width: 300px;
-    width: 400px;
+    width: 20%;
     background-color: #333333;
     position: relative;
     box-sizing: border-box;
@@ -52,6 +52,7 @@ body{
 }
 .main-list-container{
     overflow-y: auto;
+    width: 100%;
 }
 .list{
     margin: 0px 0px 20px 0px;
@@ -61,16 +62,19 @@ body{
     display: flex;
     flex-direction: row;
     width: 100%;
-    align-items: center;
 }
-.list-container a {
+.list-container-title {
+    display: flex;
+    justify-content: start;
     text-decoration: none;
-    color: inherit;
+    color: #ffffff;
     padding: 20px;
-    width: 80%;
+    width: 90%;
     cursor: pointer;
+    height: auto;
+    overflow-wrap: break-word;
 }
-.list-container a:hover{
+.list-container-title:hover{
     background-color: #494949;
 }
 
@@ -82,9 +86,11 @@ body{
     border: none;
     background-color: inherit;
     cursor: pointer;
-    height: 40px;
+    min-height: 40px;
+    min-width: 40px;
     width: 40px;
-    margin-right: 5px;
+    height: 40px;
+    margin: 5px;
 }
 .deletebtn:hover{
     background-color: #a11414;
@@ -130,22 +136,24 @@ body{
 
 .main-container{
     height: 100vh;
-    width: 100vw;
+    width: 80%;
     box-sizing: border-box;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    padding: 20px;
+    padding: 20px 0px 20px 20px;
 }
 .list-title{
     font-size: 1.5rem;
     margin: 0px 0px 20px 0px;
 }
+
 .todo-container{
     padding: 0px 0px 20px 0px;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 .innertodo{
     display: flex;
@@ -155,19 +163,22 @@ body{
     padding: 15px;
     background-color: #333333;
     width: 100%;
-    height: auto;
-    overflow-y: auto;
+    cursor: pointer;
+    box-sizing: border-box; 
 }
 .todo{
-    cursor: pointer;
+    box-sizing: border-box; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 0px 10px 10px 0px;
     background-color: #333333;
+    width: 100%;
 }
 .todo-text{
-    width: 90%;
+    box-sizing: border-box; 
+    width: 95%;
+    overflow-wrap: break-word;
 }
 
 .innertodo:hover{
@@ -192,6 +203,7 @@ body{
 }
 .todo1:checked ~ .todo-text{
     text-decoration: line-through;
+    color: #a3a3a3;
 }
 .add-new-todo{
     display: flex;
