@@ -38,7 +38,7 @@
         <% })%>
     </div>
     <form class="add-new-todo" action="/addNewTodo" method="POST">
-        <input type="text" name="newItem" autocomplete="off" required="true">
+        <input type="text" name="newItem" autocomplete="off" required="true" maxlength="300" >
         <button name="listTitle" value="<%= todoID %>">+</button>
     </form>
 </div>
