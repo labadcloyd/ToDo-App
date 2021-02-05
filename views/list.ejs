@@ -22,21 +22,25 @@
 
 
 <div class="main-container">
-    <div class="todo-container">
+    <div class="todo-wrapper">
         <h2 class="list-title"><%= todostitle %></h2>
-        <% todocontent.forEach((todo)=>{ %>
-        <form action="/removeTodo" method="POST" class="todo">
-            <label class="innertodo">
-                <input type="checkbox" name="todo1" class="todo1" minlength="1" maxlength="50">
-                <span class="checkmark"></span>        
-                <span class="todo-text"><%= todo.name %></span>
-            </label>
-            <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">
-                <input type="hidden" name="listID" value="<%= foundtodo._id %>"></input>🗑️
-            </button> 
-        </form>
-        <% })%>
+        <div class="todo-container">
+            
+            <% todocontent.forEach((todo)=>{ %>
+            <form action="/removeTodo" method="POST" class="todo">
+                <label class="innertodo">
+                    <input type="checkbox" name="todo1" class="todo1" minlength="1" maxlength="50">
+                    <span class="checkmark"></span>        
+                    <span class="todo-text"><%= todo.name %></span>
+                </label>
+                <button class="deletebtn" type="submit" name="removeTodo" value="<%= todo._id %>">
+                    <input type="hidden" name="listID" value="<%= foundtodo._id %>"></input>🗑️
+                </button> 
+            </form>
+            <% })%>
+        </div>
     </div>
+    
     <form class="add-new-todo" action="/addNewTodo" method="POST">
         <input type="text" name="newItem" autocomplete="off" required="true" maxlength="300" >
         <button name="listTitle" value="<%= todoID %>">+</button>

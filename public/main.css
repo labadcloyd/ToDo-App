@@ -160,6 +160,12 @@ body{
     overflow-wrap: break-word;
     transition: margin 0.5s;
 }
+.todo-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow-y: auto;
+}
 .list-title{
     font-size: 1.5rem;
     margin: 0px 0px 20px 0px;
