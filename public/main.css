@@ -43,7 +43,8 @@ body{
     top: 0;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    transition: transform 0.5s;    
 }
 .site-title{
     font-size: 3rem;
@@ -140,6 +141,7 @@ body{
 .main-container{
     height: 100vh;
     width: 100% !important;
+    min-width: 400px;
     margin-left: 300px;
     box-sizing: border-box;
     color: white;
@@ -149,6 +151,7 @@ body{
     justify-content: space-between;
     padding: 20px;
     overflow-wrap: break-word;
+    transition: margin 0.5s;
 }
 .list-title{
     font-size: 1.5rem;
@@ -184,7 +187,7 @@ body{
     box-sizing: border-box; 
     width: 95%;
     overflow-wrap: break-word;
-    word-break: break-all;
+    word-break:break-all;
 }
 
 .innertodo:hover{
@@ -243,4 +246,14 @@ body{
 }
 .add-new-todo button:hover{
     background-color: #144ca1;
+}
+
+/* FOR RESPONSIVENESS */
+@media only screen and (max-width: 700px) {
+    .side-bar{
+        transform: translateX(-300px);
+    }
+    .main-container{
+        margin:0;
+    }
 }
