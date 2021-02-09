@@ -62,14 +62,17 @@ body{
     border-radius: 0px 30px 30px 0px;
     font-size: 1.4rem;
     cursor: pointer;
-    transition: .3s;
+    transition: transform .5s;
     transform: translateX(-10px);
 }
 .minibar:hover{
     transform: translateX(0px);
 }
-.arrow {
+.checker {
     display: none;
+}
+.arrow {
+    transition: .5s;
 }
 /* THIS IS FOR THE SIDE BAR */
 
@@ -300,11 +303,23 @@ body{
 /* FOR RESPONSIVENESS */
 @media only screen and (max-width: 700px) {
     
-    .minibar:not(:checked) ~ .side-bar {
+    .checker:not(:checked) ~ .side-bar {
         transform: translateX(-300px);
     }
-    .minibar:checked ~ .side-bar{
+    .checker:checked ~ .side-bar{
         transform: translateX(0px);
+    }
+    .checker:checked~ .minibar {
+        transform: translateX(300px);
+    }
+    .checker:not(:checked) ~ .minibar{
+        transform: translateX(0px);
+    }
+    .checker:checked ~ .minibar > .arrow{
+        transform: rotate(180deg);
+    }
+    .checker:not(:checked) ~ .minibar > .arrow{
+        transform: rotate(0deg);
     }
     .main-container{
         margin:0px;
@@ -313,4 +328,5 @@ body{
         margin-left: 43px;
     }
 }
+
 
