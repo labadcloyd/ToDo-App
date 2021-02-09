@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 ::-webkit-scrollbar {
     width: 13px;
     height: 13px;
@@ -36,7 +45,32 @@ body{
     height: 100vh;
     width: 100vw;
 }
-
+/* THIS IS FOR THE SIDEBAR BUTTON FOR RESPONSIVENESS */
+.minibar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    margin: 20px 20px 20px 0px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a11477;
+    color:#ffffff;
+    border-radius: 0px 30px 30px 0px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: .3s;
+    transform: translateX(-10px);
+}
+.minibar:hover{
+    transform: translateX(0px);
+}
+.arrow {
+    display: none;
+}
 /* THIS IS FOR THE SIDE BAR */
 
 .side-bar{
@@ -170,6 +204,7 @@ body{
 .list-title{
     font-size: 1.5rem;
     margin: 0px 0px 20px 0px;
+    transition: .3s;
 }
 
 .todo-container{
@@ -264,10 +299,18 @@ body{
 
 /* FOR RESPONSIVENESS */
 @media only screen and (max-width: 700px) {
-    .side-bar{
+    
+    .minibar:not(:checked) ~ .side-bar {
         transform: translateX(-300px);
     }
+    .minibar:checked ~ .side-bar{
+        transform: translateX(0px);
+    }
     .main-container{
-        margin:0;
+        margin:0px;
+    }
+    .list-title {
+        margin-left: 43px;
     }
 }
+
