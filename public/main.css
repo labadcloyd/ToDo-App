@@ -310,7 +310,7 @@ body{
         transform: translateX(0px);
     }
     .checker:checked~ .minibar {
-        transform: translateX(300px);
+        transform: translateX(280px);
     }
     .checker:not(:checked) ~ .minibar{
         transform: translateX(0px);
