@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const _ = require('lodash');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
 
