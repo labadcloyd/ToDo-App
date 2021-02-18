@@ -11,7 +11,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost:27017/toDoDB', {useNewUrlParser:true, useUnifiedTopology: true })
+let mongoServerPassword = process.env.MONGO_SERVER_PASSWORD
+mongoose.connect('mongodb+srv://admin-cloyd:'+mongoServerPassword+'@todo-app.0pmsv.mongodb.net/toDoDB', {useNewUrlParser:true, useUnifiedTopology: true })
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("listening on port 3000")
