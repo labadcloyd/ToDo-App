@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
 let mongoServerPassword = process.env.MONGO_SERVER_PASSWORD
-mongoose.connect('mongodb+srv://admin-cloyd:'+mongoServerPassword+'@todo-app.0pmsv.mongodb.net/toDoDB?retryWrites=true&w=majority', {useNewUrlParser:true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URL||'mongodb+srv://admin-cloyd:'+mongoServerPassword+'@todo-app.0pmsv.mongodb.net/toDoDB?retryWrites=true&w=majority', {useNewUrlParser:true, useUnifiedTopology: true })
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("listening on port 3000")
